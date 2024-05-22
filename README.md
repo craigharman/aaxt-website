@@ -11,11 +11,6 @@ The complete web stack including AdonisJS AlpineJS htmlX and Tailwind.
 - HTMX extension `no-load` to not request current page
 - Edge templating engine
 
-### Optional
-
-- Animate.css for transitions
-- [Penguin UI](https://www.penguinui.com/), [PineUI](https://devdojo.com/pines), [Shoelace](https://shoelace.style/) or [FrankenUI](https://www.franken-ui.dev/) CSS component libraries.
-
 ## Usage
 
 To create a new AAXT project run:
@@ -29,7 +24,7 @@ npm run dev
 
 This will provide you with an AdonisJS project preconfigured with AlpineJS, HtmlX and Tailwind and with a few other bonus niceties to connect these technologies together. **It is recommended that you have a basic understanding of HTMX and AlpineJS before you start but it is not required, and hopefully AAXT is easy enough to get up and running with.**
 
-AAXT uses Adonis's server side rendering to generate HTML pages but then caches to them to give your website/application the speed of a static rendered site. The steps to create yuor website content can be simplified to:
+AAXT uses Adonis's server side rendering to generate HTML pages but then caches them to give your website/application the speed of a static rendered site. The steps to create yuor website content can be simplified to:
 
 1. Create a new server-side page (in `/resources/views/pages`) or template (in `/resources/views/components/templates) or use the default one. 
 2. Create a page in `/resources/views/pages/` using the AAXT default page template via `@templates.default({ title: 'Page title', description: 'Description for home goes here' })`
@@ -63,42 +58,7 @@ Pages will be injected into HTMX targets, in this case into the `content-wrapper
 
 ### Triggers
 
-HTMX triggers make a client based request back to the server for more content. To navigate from one page to another we add a link with some additional HTMX attributes as follows:
 
-```html
-<a href="/" preload hx-get="/" hx-trigger="click" hx-select-oob="#navigation,#content-wrapper"
-          hx-vals='{"elements": "#navigation,#content-wrapper"}' hx-replace-url="true" hx-ext="no-load">Page</a>
-```
-
-Here we have a standard `a` element with an `href` - we keep this to allow the user to be able to navigate even if Javascript is turned off. The remaining attributes are our HTMX ones and they help AAXT identify how to handle the request. A breakdown of these attributes and their specific relation to AAXT is included below:
-
-| Attribute        | Required? | HTMX Usage                                     | AAXT Description                                                                                                         |
-| ---------------- | --------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| preload          | N         | Preload the URL                                | Makes switching between pages much quicker by prefetching in the background.                                             |
-| hx-swap          | N         | Control how the response is swapped in.        | By default AAXT uses outerHTML                                                                                           |
-| hx-get           | Y         | Make a GET request to '/'                      | Request the elements that make up the '/' route in `routes.ts`                                                           |
-| hx-trigger       | Y         | The request is triggered by a click event.     | -                                                                                                                        |
-| hx-select-oob    | Y         | Out of band swap of elements                   | AAXT will return both these elements so we need HTMX to expect them. If only targeting one element, this can be omitted. |
-| hx-vals          | Y         | Send some additional data to the server        | Tell the server what elements we want generated and returned.  If only targeting one element, this can be omitted.       |
-| hx-replace-url   | N         | Replace the browser's URL with the request URL | Required if URL needs to change.                                                                                         |
-| hx-ext="no-load" | N         | Load an HTMX extension                         | "no-load" stops HTMX requesting a page if we are already on that URL.                                                    |
-
-> Note that HTMX allows us to hoist any repeated attributes to the parent element so we don't need to repeat them on every link. That is what we have done in `navigation.edge`.
-
-#### Using hx-boost
-
-You may see all the attributes above and think, its much easier to just use [hx-boost](https://htmx.org/attributes/hx-boost/). While AAXT certainly supports this the disadvantage is you will be increasing the amount of traffic sent between the server and browser, as hx-boost requires the entire page. If this is not a consideration for your setup, then you can use `hx-boost` out of the box as described in the [HTMX documentation](https://htmx.org/attributes/hx-boost/).
-
-## Requesting HTML Fragments (or components)
-
-If you want to load individual HTML components or fragments simply add a route to `routes.ts` that renders the component explcitly via `` then use HTMX in the page view to request it:
-
-```html
-<button hx-get="/quote" hx-trigger="click" hx-target="#quote">
-      Click to load
-</button>
-<div id="quote">This text will be replaced with whatever returns from the /quote endpoint.</div>
-```
 
 ## Caching
 
