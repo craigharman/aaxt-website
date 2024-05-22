@@ -1,0 +1,40 @@
+<section class="py-16 bg-white md:py-20 lg:py-24" data-tails-scripts="//unpkg.com/alpinejs">
+  <div class="max-w-5xl px-12 mx-auto xl:px-0 text-center">
+
+    <h2 class="text-3xl font-extrabold text-black lg:text-7xl tracking-tighter">Frequently asked questions
+    </h2>
+    <p class="max-w-2xl lg:mx-auto mt-4 text-lg leading-7 tracking-tight text-neutral-600">Here are some of the most
+      common frequently asked
+      questions.</p>
+
+    <div class="relative mt-12 space-y-3 text-left">
+
+      @!faqQuestion({ question: 'Why another framework/boilerplate?', answer: `Quite simply; I wanted something that was
+      end to end Typescript that didn't feel like a frontend framework trying to be full-stack. AdonisJS gives you the
+      powerful Rails/Laravel-like framework in Typescript with baked in routing, database ORM, etc. while AAXT supplies
+      a
+      standard, best practice way to server your frontend code.`})
+
+      @!faqQuestion({ question: 'Why not InertiaJS?', answer: `Inertia is great, but it requires <a
+        href="https://docs.adonisjs.com/guides/inertia" target="_blank">a whole heap of configuration in Adonis and your
+        front end</a>
+      to get it working. AAXT replaces this with HTMX and a small middleware that automatically handles the HTML to
+      serve based on the request. It also allows prefetching, html fragments and whole page refreshes. Sending HTML
+      fragments can save a lot of network traffic as you are not sending the whole page every time a user requests
+      it.`})
+
+      @!faqQuestion({ question: 'Can you add x to AAXT?', answer: `I feel like AAXT is pretty feature complete and I
+      don't want it to become too large, but if you really think there is something I've missed <a
+        href="https://github.com/craigharman/aaxt/issues" target="_blank">create an issue on
+        Github</a> and we can discuss. Otherwise, the framework is open source so feel free to fork it and add it
+      yourself.`})
+
+      @!faqQuestion({ question: 'Why are my fragments and pages out of sync?', answer: `This can occur in development
+      when HTML fragment caches are not re-generated during a hot-reload. By default, AAXT uses an in memory cache which
+      can be cleared simply by restarting your application. If you are using a different caching technology you will
+      need to handle the clearing in your code as you would any other cache.`})
+
+    </div>
+
+  </div>
+</section>
