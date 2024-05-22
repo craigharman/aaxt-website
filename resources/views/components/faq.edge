@@ -1,4 +1,4 @@
-<section class="py-16 bg-white md:py-20 lg:py-24" data-tails-scripts="//unpkg.com/alpinejs">
+<section class="py-16 bg-white md:py-20 lg:py-24" id="FAQ">
   <div class="max-w-5xl px-12 mx-auto xl:px-0 text-center">
 
     <h2 class="text-3xl font-extrabold text-black lg:text-7xl tracking-tighter">Frequently asked questions
@@ -32,7 +32,9 @@
       @!faqQuestion({ question: 'Why are my fragments and pages out of sync?', answer: `This can occur in development
       when HTML fragment caches are not re-generated during a hot-reload. By default, AAXT uses an in memory cache which
       can be cleared simply by restarting your application. If you are using a different caching technology you will
-      need to handle the clearing in your code as you would any other cache.`})
+      need to handle the clearing in your code as you would any other cache.<br /><br />You could also selectively turn
+      off
+      caching in development.`})
 
     </div>
 
