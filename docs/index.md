@@ -1,6 +1,7 @@
 # AAXT
 
-![AAXT Logo](/aaxt-logo.svg){width=150px}
+![AAXT Logo](/aaxt-logo.svg){width=150px .light-only align=left}
+![AAXT Logo](/aaxt-logo-dark.svg){width=150px .dark-only align=left}
 
 AAXT is a meta-framework that combines AdonisJS, Alpine JS, HTMX and Tailwind into a quick start boilerplate for developing backend centric websites and applications. If you are reaching for a database then AAXT is probably a good fit, if you are after a static site generator, then there's better options.
 

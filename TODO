@@ -1,4 +1,7 @@
 TODO:
-  ☐ Write transitions docs
-  ☐ Cache docs using Adonis (https://docs.adonisjs.com/guides/basics/static-file-server)
-  ☐ Add docs link to AAXT project readme
+  ✔ Write transitions docs @done(24-05-24 20:34)
+  ✔ Cache docs using Adonis (https://docs.adonisjs.com/guides/basics/static-file-server) @done(24-05-24 20:36)
+  ✔ Add docs link to AAXT project readme @done(24-05-24 20:37)
+  ☐ Create examples page
+  ✔ Add a dark mode version of the logo on index.md @done(24-05-24 20:59)
+  ☐ Write readme.md for the website (how to deploy) - note AdonisJS AND npm run docs:build (to place docs in /public folder)

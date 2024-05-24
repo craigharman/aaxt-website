@@ -12,4 +12,8 @@ We include the `Vary` header so that the cache can distinguish between a request
 
 AAXT uses [BentoCache](https://bentocache.dev/) to cache responses once they have been generated. The cache is an Adonis provider located in `/app/providers/cache_provider.ts`. 
 
-You can configure the cache using [BentoCache options](https://bentocache.dev/docs/options) in the `config/cache.ts` file. AAXT comes preconfigured with a simple default in-memory cache, but you can easily configure a more advanced caching mechanism.
+Server caching of edge templates is done on a hash of the request URL + any HTMX requested targets. This has the advantage of quicker response times but at the expense of caching more duplicate data (the whole page, plus the fragments). If storage is a concern you can remove the `server_cache_middleware` from `kernel.ts` and instead just cache the whole page output by editing `htmx_middleware.ts` to retrieve the page from cache.
+
+### BentoCache
+
+You can further configure the cache using [BentoCache options](https://bentocache.dev/docs/options) in the `config/cache.ts` file. AAXT comes preconfigured with a simple default in-memory cache, but you can easily configure a more advanced caching mechanism. Refer to the [BentoCache docs](https://bentocache.dev/docs) for more details.
