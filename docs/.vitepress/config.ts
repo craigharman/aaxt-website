@@ -4,6 +4,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'AAXT',
   description: 'AdonisJS, AlpineJS, HTMX and Tailwind meta-framework.',
+  base: '/docs',
+  outDir: '../public/docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     // nav: [
