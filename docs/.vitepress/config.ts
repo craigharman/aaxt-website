@@ -50,6 +50,10 @@ export default defineConfig({
             text: 'Components',
             link: '/components',
           },
+          {
+            text: 'Transitions',
+            link: '/transitions',
+          },
         ],
       },
       {
