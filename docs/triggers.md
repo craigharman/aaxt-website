@@ -19,7 +19,7 @@ Here we have a standard `a` element with an `href` - we keep this to allow the u
 | hx-replace-url   | N         | Replace the browser's URL with the request URL | Required if URL needs to change.                                             |
 | hx-ext="no-load" | N         | Load an HTMX extension                         | "no-load" stops HTMX requesting a page if we are already on that URL.        |
 
-> Note that HTMX allows us to hoist any repeated attributes to the parent element so we don't need to repeat them on every link. As such our `<nav>` element from our previous example does not need to repeat every HTMX attribute.
+Note that HTMX allows us to hoist any repeated attributes to the parent element so we don't need to repeat them on every link. As such our `<nav>` element from our previous example does not need to repeat every HTMX attribute, instead we can place them in the parent element:
 
 ```html
 <!-- /resources/views/example.edge -->
