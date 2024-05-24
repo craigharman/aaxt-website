@@ -50,6 +50,19 @@ export default defineConfig({
           },
         ],
       },
+      {
+        text: 'Advanced',
+        items: [
+          {
+            text: 'Middleware',
+            link: '/middleware',
+          },
+          {
+            text: 'Caching',
+            link: '/caching',
+          },
+        ],
+      },
     ],
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/craigharman/aaxt' }],
