@@ -1,6 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import type { NextFn } from '@adonisjs/core/types/http'
 import cache from '#services/cache_service'
+import env from '#start/env'
 import { md5 } from '../lib/md5.js'
 import { parse } from 'node-html-parser'
 
@@ -32,11 +33,14 @@ export default class HtmxMiddleware {
       }
       cacheKey += targets
     }
-    cacheKey = md5(cacheKey)
-    const cachedHTML = await cache.get(cacheKey)
-    if (cachedHTML) {
-      // End request here so we don't end up building the template again
-      return ctx.response.status(200).send(cachedHTML)
+    if (env.get('NODE_ENV') !== 'development') {
+      // Don't cache during development
+      cacheKey = md5(cacheKey)
+      const cachedHTML = await cache.get(cacheKey)
+      if (cachedHTML) {
+        // End request here so we don't end up building the template again
+        return ctx.response.status(200).send(cachedHTML)
+      }
     }
 
     /**
@@ -68,7 +72,10 @@ export default class HtmxMiddleware {
       }
 
       html += components
-      await cache.set(cacheKey, html)
+      if (env.get('NODE_ENV') !== 'development') {
+        // Don't cache during development
+        await cache.set(cacheKey!, html)
+      }
 
       return response.status(200).send(html)
     }

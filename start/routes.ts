@@ -10,5 +10,6 @@
 import router from '@adonisjs/core/services/router'
 
 router.on('/').render('pages/home')
-router.on('/page2').render('pages/page2')
+router.on('/examples').render('pages/examples')
+router.on('/examples/sparkles').render('pages/examples', { sparkles: true })
 router.on('/quote').render('components/quote')

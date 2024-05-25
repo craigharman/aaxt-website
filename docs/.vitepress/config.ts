@@ -8,10 +8,10 @@ export default defineConfig({
   outDir: '../public/docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    // nav: [
-    //   { text: 'Home', link: '/' },
-    //   { text: 'Examples', link: '/markdown-examples' }
-    // ],
+    nav: [
+      { text: 'Home', link: '../' },
+      { text: 'Examples', link: '../examples' },
+    ],
 
     sidebar: [
       {
