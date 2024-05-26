@@ -9,8 +9,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '../' },
-      { text: 'Examples', link: '../examples' },
+      { text: 'Home', link: 'https://aaxt.mrmasonic.com/' },
+      { text: 'Examples', link: 'https://aaxt.mrmasonic.com/examples/' },
     ],
 
     sidebar: [
