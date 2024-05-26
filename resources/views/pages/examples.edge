@@ -1,23 +1,76 @@
 @templates.default({ title: 'AAXT Examples', description: 'Have a look what AAXT can do!.' })
-<section id="examples-section" class="bg-white m-12">
+<section id="examples-section" class="relative" x-transition:enter.duration.500ms x-transition:leave.duration.500ms>
   @if(sparkles)
-  <style>
-    #examples-section {
-      background-color: aqua;
-    }
-
-    h2 {
-      background: linear-gradient(to right bottom, red, orange, yellow, green, blue, indigo, violet);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-  </style>
-  @end
-  <div class="max-w-5xl px-12 mx-auto xl:px-0 text-center">
-
+  <div id="bg-wrap" class="z-10 h-full">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255, 0, 255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255, 0, 255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255, 255, 0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255, 255, 0, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0, 255, 255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0, 255, 255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient4" cx="50%" cy="50%" fx="4.56417%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="23s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0, 255, 0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0, 255, 0, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient5" cx="50%" cy="50%" fx="2.65405%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="24.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0,0,255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0,0,255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient6" cx="50%" cy="50%" fx="0.981338%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="25.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255,0,0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255,0,0, 0)"></stop>
+        </radialGradient>
+      </defs>
+      <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+        <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s"
+          repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)"
+        transform="rotate(255.072 50 50)">
+        <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s"
+          repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)"
+        transform="rotate(139.903 50 50)">
+        <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s"
+          repeatCount="indefinite"></animateTransform>
+      </rect>
+    </svg>
+    @if(sparkles)
+    <div class="absolute top-10 left-1/2 transform -translate-x-1/2">
+      <button hx-get="/examples" hx-trigger="click" hx-target="#whole-page" hx-swap="transition:true"
+        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 rounded-md bg-neutral-950 hover:bg-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:shadow-outline focus:outline-none">
+        Restore page
+      </button>
+    </div>
+    @end
+  </div>
+  @else
+  <div class="max-w-5xl px-12 mx-auto xl:px-0 text-center m-12 pb-12 z-20" id="example-content">
     <h2 class="text-3xl font-extrabold lg:text-7xl tracking-tighter">Examples
     </h2>
-    <p class="max-w-2xl lg:mx-auto mt-4 text-lg leading-7 tracking-tight text-neutral-600">Have a look at AAXT in
+    <p class="max-w-2xl lg:mx-auto mt-4 text-lg leading-7 tracking-tight text-neutral-600">
+      Have a look at AAXT in
       action. I suggest opening the network tab of DevTools so you can see what's going on.</p>
 
     <div class="text-left mt-12 grid grid-cols-2 gap-10 max-w-2xl  ml-auto mr-auto">
@@ -59,15 +112,18 @@
         </blockquote>
       </div>
       <div>
-        <button hx-get="/examples/sparkles" hx-trigger="click" hx-target="#examples-section"
+        <button hx-get="/examples/sparkles" hx-ext="no-load" hx-trigger="click" hx-target="#whole-page"
+          hx-swap="transition:true"
           class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 rounded-md bg-neutral-950 hover:bg-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:shadow-outline focus:outline-none">
-          Reload page
+          Full page
         </button>
-        <p class="mt-2">We can also update all the contents of the page using Alpine merge for some cool effects. Again,
+        <p class="mt-2">We can also update all the contents of the page again,
           notice how we only receive the elements that are changing from the server.</p>
       </div>
+      <div></div>
     </div>
   </div>
   </div>
+  @end
 </section>
 @end
