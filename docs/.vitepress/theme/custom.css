@@ -1,0 +1,7 @@
+:root:not(.dark) .dark-only {
+  display: none;
+}
+
+:root:is(.dark) .light-only {
+  display: none;
+}

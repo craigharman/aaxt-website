@@ -11,9 +11,11 @@
   </head>
 
   <body hx-ext="preload">
-    @!navigation()
-    <div id="content-wrapper" class="bounce">
-      {{{ await $slots.main() }}}
+    <div id="whole-page" class="bounce">
+      @!navigation()
+      <div id="content-wrapper">
+        {{{ await $slots.main() }}}
+      </div>
     </div>
   </body>
 
