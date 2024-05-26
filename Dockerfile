@@ -17,7 +17,7 @@ FROM base as build
 WORKDIR /app
 COPY --from=deps /app/node_modules /app/node_modules
 ADD . .
-RUN node ace build && npm run build:docs
+RUN node ace build && npm run docs:build
 
 # Production stage
 FROM base
