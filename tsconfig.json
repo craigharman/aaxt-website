@@ -4,4 +4,5 @@
     "rootDir": "./",
     "outDir": "./build",
   },
+  "ignorePatterns": ["!vitest.config.ts"]
 }
