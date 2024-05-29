@@ -13,3 +13,14 @@ It's major advantages include:
 - Transition animations (with either Alpine, HTMX or CSS transitions)
 - Control everything from one node application (no separate frontend application required)
 - No modifications to routes or client-side library installs - it just works!
+
+The process works like this:
+
+```mermaid
+flowchart LR
+    A[Full Page Request] --> C[Server Middleware]
+    B[HTMX Request] --> C[Server Middleware]
+    C[Server Middleware] --> D[Render Page HTML or Retrieve from Cache]
+    D[Render Page HTML or Retrieve from Cache] --> E[Extract Required Elements]
+    E[Extract Required Elements] --> F[Send Response to Browser]
+```
